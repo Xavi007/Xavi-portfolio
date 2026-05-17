@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xavier Dias | Embedded Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html,body{
+  width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#0a0a0a;
+  color:#fff;
+  font-family:'IBM Plex Sans',sans-serif;
+}
+
+#stars{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+
+.hero{
+  position:relative;
+  z-index:1;
+  width:100%;
+  min-height:100vh;
+}
+
+.heading{
+  position:absolute;
+  top:10vh;
+  left:4.5vw;
+  z-index:3;
+  line-height:1.05;
+}
+
+.h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.4rem,6vw,8rem);
+  font-weight:700;
+  letter-spacing:-0.04em;
+}
+
+.h2{
+  font-family:'Space Grotesk',sans-serif;
+  margin-top:10px;
+  font-size:clamp(1.4rem,3.8vw,5rem);
+  font-weight:500;
+  letter-spacing:-0.03em;
+}
+
+.h1 .p{
+  color:#8b5cf6;
+  text-shadow:0 0 20px rgba(139,92,246,0.5);
+}
+
+.resume-terminal{
+  position:absolute;
+  top:28px;
+  right:4.5vw;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  z-index:5;
+}
+
+.terminal-btn{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 20px;
+  border-radius:12px;
+  font-family:'JetBrains Mono';
+  font-size:.9rem;
+  text-decoration:none;
+  color:#e5e7eb;
+  background:rgba(20,20,20,.9);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+  transition:all .25s ease;
+  white-space:nowrap;
+}
+
+.terminal-btn:hover{
+  transform:scale(1.05);
+  border-color:#8b5cf6;
+  box-shadow:0 0 20px rgba(139,92,246,.6),0 0 50px rgba(139,92,246,.3);
+}
+
+.terminal-symbol{color:#8b5cf6;font-weight:600;}
+
+.terminal-sub{
+  margin-top:8px;
+  font-family:'JetBrains Mono';
+  font-size:.78rem;
+  color:#9ca3af;
+}
+
+.left-col{
+  position:absolute;
+  left:4.5vw;
+  top:55vh;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+}
+
+.photo-circle{
+  width:clamp(110px,11vw,160px);
+  height:clamp(110px,11vw,160px);
+  border-radius:50%;
+  border:2.5px solid #8b5cf6;
+  overflow:hidden;
+  flex-shrink:0;
+  box-shadow:0 0 0 5px rgba(139,92,246,.18),0 0 36px rgba(139,92,246,.6);
+}
+
+.photo-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.info{
+  margin-top:2.5vh;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.name{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.1rem,1.6vw,1.5rem);
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+
+.role-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(.68rem,.95vw,.88rem);
+  color:#9ca3af;
+  letter-spacing:.04em;
+  line-height:1.6;
+  margin-top:6px;
+}
+
+.icons-row{
+  position:absolute;
+  left:45%;
+  top:38vh;
+  transform:translateX(-50%);
+  width:440px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:20px 24px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(30,30,30,0.4),rgba(10,10,10,0.7));
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.07);
+  z-index:3;
+}
+
+.skill-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.skill-group+.skill-group{
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+.icon-group-title{
+  font-family:'JetBrains Mono';
+  font-size:.65rem;
+  color:#8b5cf6;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.icons-grid{
+  display:flex;
+  flex-direction:row;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.ic{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .25s ease;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.ic img{
+  width:58%;
+  height:58%;
+  object-fit:contain;
+  transition:all .3s ease;
+}
+
+.ic:hover{
+  transform:translateY(-4px) scale(1.08);
+  box-shadow:0 0 18px rgba(139,92,246,.4);
+}
+
+.ic:hover img{transform:scale(1.15);}
+
+@keyframes iconPulse{
+  0%{box-shadow:0 0 0 rgba(139,92,246,0)}
+  50%{box-shadow:0 0 10px rgba(139,92,246,.2)}
+  100%{box-shadow:0 0 0 rgba(139,92,246,0)}
+}
+
+.icons-row .ic{animation:iconPulse 4s infinite ease-in-out;}
+
+/* .right-col{
+  position:absolute;
+  right:4.5vw;
+  top:38vh;
+  z-index:3;
+  width:400px;
+} */
+
+
+.social-box{
+  width:100%;
+  padding:10px 14px;   /* 🔥 reduced from 16+ */
+  border-radius:16px;
+
+  background:linear-gradient(145deg,rgba(30,30,30,0.35),rgba(10,10,10,0.7));
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;   /* 🔥 tighter spacing */
+}
+
+.social-title{
+  font-family:'JetBrains Mono';
+  font-size:.6rem;     /* slightly smaller */
+  color:#8b5cf6;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:4px;   /* 🔥 reduce space */
+}
+
+.social-icons{
+  display:flex;
+  gap:14px;   /* 🔥 tighter */
+}
+
+.social-icons a{
+  width:38px;    /* 🔥 smaller */
+  height:38px;
+  border-radius:10px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+
+  transition:all .25s ease;
+}
+
+.social-icons img{
+  width:60%;
+  height:60%;
+  object-fit:contain;
+}
+
+.social-icons a:hover{
+  transform:translateY(-4px) scale(1.1);
+  border-color:#8b5cf6;
+  box-shadow:0 0 15px rgba(139,92,246,.5);
+}
+
+
+
+.right-col{
+  position:absolute;
+  right:4.5vw;
+  top:38vh;
+  z-index:3;
+  width:400px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:50px;   /* 🔥 THIS is the real fix */
+}
+
+
+.leetcode-box{
+  background:linear-gradient(145deg,rgba(30,30,30,0.35),rgba(10,10,10,0.75));
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+.leetcode-box img{
+  width:100%;
+  border-radius:12px;
+  display:block;
+}
+
+/* ═══════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════ */
+
+.projects,.blogs{
+  padding:60px 4.5vw;
+  position:relative;
+  z-index:2;
+}
+
+.section-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  letter-spacing:-0.03em;
+  margin-bottom:40px;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:32px;
+}
+
+.project-card{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  background:#0f0f0f;
+  position:relative;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  transition:transform .15s ease,box-shadow .25s ease,border-color .25s ease;
+}
+
+.project-card:hover{
+  border-color:#8b5cf6;
+  box-shadow:0 20px 50px rgba(139,92,246,0.25);
+}
+
+.project-card img{
+  width:100%;
+  height:240px;
+  object-fit:contain;
+  display:block;
+  transition:all .4s ease;
+}
+
+.project-card:hover img{
+  filter:blur(6px) brightness(0.4);
+  transform:scale(1.08);
+}
+
+.project-info{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:28px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all .35s ease;
+}
+
+.project-card:hover .project-info{opacity:1;transform:translateY(0);}
+
+.project-info h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:1.2rem;
+  letter-spacing:-0.02em;
+  margin-bottom:10px;
+}
+
+.project-info p{
+  font-size:.9rem;
+  color:#cbd5e1;
+  line-height:1.6;
+  max-width:240px;
+  margin-bottom:16px;
+}
+
+.project-info .view-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 18px;
+  border-radius:8px;
+  background:rgba(139,92,246,0.2);
+  border:1px solid rgba(139,92,246,0.5);
+  color:#a78bfa;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;
+  letter-spacing:.06em;
+  cursor:pointer;
+  transition:background .2s,box-shadow .2s;
+  text-decoration:none;
+}
+.project-info .view-btn:hover{
+  background:rgba(139,92,246,0.35);
+  box-shadow:0 0 16px rgba(139,92,246,.4);
+}
+
+/* ── ABOUT ── */
+.about{
+  position:relative;
+  padding:80px 4.5vw 60px;
+  z-index:2;
+  max-width:1400px;
+  margin:auto;
+}
+
+.about-bg{
+  position:absolute;
+  top:0;left:0;
+  font-size:20rem;
+  font-family:'Space Grotesk';
+  font-weight:700;
+  color:rgba(255,255,255,0.03);
+  pointer-events:none;
+  user-select:none;
+  line-height:1;
+}
+
+.about-title{
+  font-family:'Space Grotesk';
+  font-size:clamp(2rem,4vw,3.2rem);
+  margin-bottom:50px;
+  position:relative;
+  z-index:2;
+}
+
+.about-container{
+  display:grid;
+  grid-template-columns:65% 35%;
+  gap:60px;
+  align-items:center;
+}
+
+.about-text{
+  font-size:1rem;
+  line-height:1.9;
+  color:#cbd5e1;
+}
+
+.about-text p{margin-bottom:22px;}
+.about-intro{font-size:1.15rem;color:#fff;}
+
+.about-visual{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.about-visual img{
+  width:100%;
+  max-width:340px;
+  animation:float 6s ease-in-out infinite;
+}
+
+.about-caption{
+  margin-top:16px;
+  font-size:.82rem;
+  color:#9ca3af;
+  text-align:center;
+  font-family:'JetBrains Mono';
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+/* ═══════════════════════════════════════
+   PROJECT MODAL
+═══════════════════════════════════════ */
+
+.modal-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.78);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:20px;
+}
+.modal-overlay.open{display:flex;}
+
+.modal{
+  background:linear-gradient(145deg,rgba(16,12,28,0.98),rgba(10,10,14,0.99));
+  border:1px solid rgba(139,92,246,0.28);
+  border-radius:24px;
+  width:min(780px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  box-shadow:0 0 0 1px rgba(139,92,246,0.07),0 40px 80px rgba(0,0,0,0.85),0 0 80px rgba(139,92,246,0.08);
+  position:relative;
+  animation:modalIn .32s cubic-bezier(0.16,1,0.3,1);
+  scrollbar-width:thin;
+  scrollbar-color:rgba(139,92,246,0.3) transparent;
+}
+
+.modal::-webkit-scrollbar{width:4px;}
+.modal::-webkit-scrollbar-track{background:transparent;}
+.modal::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.3);border-radius:4px;}
+
+@keyframes modalIn{
+  from{opacity:0;transform:scale(0.9) translateY(24px);}
+  to{opacity:1;transform:scale(1) translateY(0);}
+}
+
+.modal-close{
+  position:absolute;
+  top:18px;right:18px;
+  width:34px;height:34px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  color:#9ca3af;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s,border-color .2s;
+  z-index:10;
+  line-height:1;
+}
+.modal-close:hover{background:rgba(139,92,246,0.2);color:#fff;border-color:rgba(139,92,246,0.5);}
+
+.modal-header{
+  padding:28px 32px 22px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+}
+
+.modal-icon{
+  width:54px;height:54px;
+  border-radius:14px;
+  background:rgba(139,92,246,0.1);
+  border:1px solid rgba(139,92,246,0.28);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.modal-icon svg{width:26px;height:26px;}
+
+.modal-title-group{flex:1;}
+.modal-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.45rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.03em;
+  margin-bottom:5px;
+  padding-right:40px;
+}
+.modal-subtitle{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;
+  color:#8b5cf6;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.status-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(34,197,94,0.08);
+  border:1px solid rgba(34,197,94,0.22);
+  border-radius:20px;
+  padding:5px 13px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;
+  color:#4ade80;
+  letter-spacing:.06em;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.status-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#4ade80;
+  animation:pulseDot 2s infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:0.35}}
+
+.modal-body{padding:24px 32px 32px;display:flex;flex-direction:column;gap:22px;}
+
+.overview-text{
+  font-size:.92rem;
+  line-height:1.82;
+  color:#9ca3af;
+}
+.overview-text b{color:#e2e8f0;font-weight:500;}
+
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.63rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#8b5cf6;
+  margin-bottom:12px;
+}
+
+.metrics-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.metric-card{
+  background:rgba(139,92,246,0.06);
+  border:1px solid rgba(139,92,246,0.14);
+  border-radius:14px;
+  padding:14px 16px;
+  text-align:center;
+}
+.metric-val{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:#a78bfa;
+  letter-spacing:-0.03em;
+}
+.metric-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;
+  color:#6b7280;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-top:3px;
+}
+
+/* .social-icons{
+  margin-top:80px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+} */
+
+.social-icons a{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all .25s ease;
+}
+
+.social-icons img{
+  width:60%;
+  height:60%;
+  object-fit:contain;
+  filter:invert(0);   /* makes everything white */
+}
+
+.social-icons a:hover{
+  transform:translateY(-4px) scale(1.1);
+  border-color:#8b5cf6;
+  box-shadow:0 0 15px rgba(139,92,246,.5);
+}
+
+.modal-divider{height:1px;background:rgba(255,255,255,0.05);}
+
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(138px,1fr));
+  gap:9px;
+}
+.tech-chip{
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  padding:11px 13px;
+  display:flex;flex-direction:column;gap:5px;
+  transition:border-color .2s,background .2s;
+  cursor:default;
+}
+.tech-chip:hover{
+  border-color:rgba(139,92,246,0.38);
+  background:rgba(139,92,246,0.06);
+}
+.tech-chip-top{display:flex;align-items:center;gap:8px;}
+.tech-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.tech-chip-name{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.73rem;
+  font-weight:600;
+  color:#e2e8f0;
+}
+.tech-chip-desc{font-size:.7rem;color:#6b7280;line-height:1.4;}
+
+.features-list{display:flex;flex-direction:column;gap:9px;}
+.feature-row{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.85rem;color:#9ca3af;line-height:1.55;
+}
+.feature-arrow{
+  width:18px;height:18px;
+  border-radius:5px;
+  background:rgba(139,92,246,0.14);
+  border:1px solid rgba(139,92,246,0.24);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  margin-top:1px;
+  font-size:10px;
+  color:#a78bfa;
+}
+.feature-row b{color:#e2e8f0;font-weight:500;}
+
+/* ═══════════════════════════════════════
+   MOBILE ≤ 768px
+═══════════════════════════════════════ */
+@media(max-width:768px){
+  .hero{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    padding:0 5vw 48px;
+    gap:0;
+  }
+  .heading{position:static;padding-top:24px;margin-bottom:28px;}
+  .resume-terminal{position:static;align-items:flex-start;margin-bottom:32px;}
+  .terminal-sub{display:none;}
+  .left-col{
+    position:static;flex-direction:row;
+    align-items:center;gap:18px;margin-bottom:28px;
+  }
+  .photo-circle{width:80px;height:80px;flex-shrink:0;}
+  .info{margin-top:0;}
+  .name{font-size:1.1rem;}
+  .role-sub{font-size:.72rem;}
+  .icons-row{
+    position:static;transform:none;left:auto;top:auto;
+    width:100%;margin-bottom:28px;padding:16px 18px;gap:12px;
+  }
+  .ic{width:44px;height:44px;}
+  .right-col{position:static;width:100%;top:auto;right:auto;}
+  .projects,.blogs{padding:40px 5vw;}
+  .projects-grid{grid-template-columns:1fr;gap:24px;}
+  .project-card img{height:200px;}
+  .about{padding:50px 5vw 40px;}
+  .about-bg{font-size:8rem;}
+  .about-container{grid-template-columns:1fr;gap:32px;}
+  .about-visual{display:none;}
+  .modal-header{padding:22px 20px 18px;gap:14px;}
+  .modal-body{padding:20px 20px 28px;}
+  .modal-title{font-size:1.15rem;}
+  .metrics-row{grid-template-columns:repeat(3,1fr);}
+  .metric-val{font-size:1.1rem;}
+  .tech-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(min-width:769px) and (max-width:1100px){
+  .icons-row{width:380px;left:42%;}
+  .right-col{width:320px;}
+  .left-col{top:60vh;}
+  .about-container{grid-template-columns:60% 40%;gap:40px;}
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+
+  <div class="heading">
+    <div class="h1">Hi, I'm <span class="p">Xavier</span></div>
+    <div class="h2">Software Engineer</div>
+  </div>
+
+  <div class="resume-terminal">
+  <a href="XavierDias_Resume.pdf" download class="terminal-btn">
+    <span class="terminal-symbol">$</span>
+    <span class="terminal-command">./download_resume.sh</span>
+  </a>      <span class="terminal-symbol"></span>
+    <div class="terminal-sub">Click to download my resume.</div>
+  </div>
+
+  <div class="left-col">
+    <div class="photo-circle"><img src="./Images/Xavi.png" alt="Xavier Dias">
+      
+    </div>
+    <div class="info">
+      <div class="name">Xavier Dias</div>
+      <div class="role-sub">Embedded Software Engineer</div>
+    </div>
+  </div>
+
+  <div class="icons-row">
+    <div class="skill-group">
+      <div class="icon-group-title">Programming Languages</div>
+      <div class="icons-grid">
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" title="C"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" title="C++"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python"></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="icon-group-title">Tools &amp; Frameworks</div>
+      <div class="icons-grid">
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" title="Linux"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" title="Django"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opengl/opengl-original.svg" title="OpenGL"></div>
+        <div class="ic" title="LDRA"><span style="font-family:'JetBrains Mono';font-size:.62rem;font-weight:700;color:#8b5cf6;">LDRA</span></div>
+        <div class="ic" title="Astronics CoPilot"><span style="font-family:'JetBrains Mono';font-size:.5rem;font-weight:700;color:#a78bfa;text-align:center;line-height:1.3;">Co<br>Pilot</span></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="icon-group-title">Cloud &amp; DevOps</div>
+      <div class="icons-grid">
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" style="filter:brightness(0) invert(1)" title="AWS"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" title="Git"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="filter:brightness(0) invert(1)" title="GitHub"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/subversion/subversion-original.svg" title="SVN"></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="icon-group-title">Databases</div>
+      <div class="icons-grid">
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" title="MySQL"></div>
+        <div class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" title="SQLite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="right-col">
+    <div class="leetcode-box">
+      <img src="https://leetcard.jacoblin.cool/Xavier_Dias?ext=heatmap" alt="LeetCode Stats">
+    </div>
+  </div> -->
+<div class="right-col">
+
+  <div class="leetcode-box">
+    <img src="https://leetcard.jacoblin.cool/Xavier_Dias?ext=heatmap" alt="LeetCode Stats">
+  </div>
+
+  <!-- ✅ OUTSIDE -->
+<div class="social-box">
+
+  <div class="social-title">SOCIALS</div>
+
+  <div class="social-icons">
+    <a href="https://github.com/Xavi007" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+    </a>
+
+    <a href="https://www.linkedin.com/in/xavier-dias-442996252/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+    </a>
+
+    <a href="https://instagram.com/xavierdias07" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    </a>
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+
+</div><!-- end .hero -->
+
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about">
+  <div class="about-bg">ME</div>
+  <h2 class="about-title">About Me</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <p class="about-intro">Embedded Software Engineer | Avionics Systems | Real-Time Software</p>
+      <p>I design and build software that makes complex hardware systems reliable, predictable, and mission ready. My work lives where software meets silicon from real time avionics systems to embedded platforms.</p>
+      <p>With strong expertise in <b>C / C++</b> and <b>embedded architectures</b>, I develop firmware that drives real hardware avionics displays, navigation systems, flight data recorders, and communication protocols.</p>
+      <p>Recently I've been working on aerospace focused projects involving <b>ARINC-429 avionics communication</b>, real-time flight navigation displays built with embedded systems that process data with deterministic performance.</p>
+      <p>I enjoy solving low-level problems optimizing memory, debugging timing issues, and designing systems that remain stable even under extreme constraints.</p>
+    </div>
+    <div class="about-visual">
+      <img src="./Images/about-illustration.png" alt="about illustration">
+      <p class="about-caption">👉 Hey! Where did I put my coffee cup?<br>Maybe some code will help ☕</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section class="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card" onclick="openModal('mcdu')">
+      <img src="./Images/MCDU.png" alt="MCDU">
+      <div class="project-info">
+        <h3>Multi-Control Display Unit</h3>
+        <p>Cockpit avionics interface supporting ARINC-429 / 739 communication and real-time command exchange.</p>
+        <span class="view-btn">▶ VIEW DETAILS</span>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('navic')">
+      <img src="./Images/NAVIC.png" alt="Navigation System">
+      <div class="project-info">
+        <h3>Real-Time Navigation System</h3>
+        <p>Embedded flight navigation display built with OpenGL for real-time aircraft positioning.</p>
+        <span class="view-btn">▶ VIEW DETAILS</span>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('fdr')">
+      <img src="./Images/FDR.png" alt="Flight Data Recorder">
+      <div class="project-info">
+        <h3>Flight Data Recorder</h3>
+        <p>Aircraft black-box system capturing critical avionics data for post-flight analysis.</p>
+        <span class="view-btn">▶ VIEW DETAILS</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════ BLOGS ═══════════════ -->
+<section class="blogs">
+  <h2 class="section-title">Blogs</h2>
+  <div class="projects-grid">
+
+    <!-- BLOG FIRST -->
+    <div class="project-card" onclick="openModal('blog1')">
+      <img src="https://images.unsplash.com/photo-1555617981-dac3880eac6e" alt="Blog 3">
+      <div class="project-info">
+        <h3>ARINC 429 Explained</h3>
+        <p>Deep dive into avionics communication</p>
+        <span class="view-btn">▶ READ BLOG</span>
+      </div>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Blog 1">
+      <div class="project-info">
+        <h3>Coming Soon</h3>
+        <p>Stay tuned</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc" alt="Blog 2">
+      <div class="project-info">
+        <h3>Coming Soon</h3>
+        <p>Stay tuned</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     MODALS
+═══════════════════════════════════════ -->
+<!-- MODAL: BLOG -->
+<div class="modal-overlay" id="modal-blog1">
+  <div class="modal" role="dialog">
+    <button class="modal-close" onclick="closeModal('blog1')">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <div class="modal-title">ARINC 429 </div>
+        <div class="modal-subtitle">Embedded Systems · Avionics · Real-World Debugging</div>
+      </div>
+    </div>
+
+    <div class="modal-body">
+
+      <p class="overview-text">
+        A real-world deep dive into ARINC 429 from implementation perspective —
+        not theory. Covers word structure, decoding, BNR vs BCD pitfalls,
+        and actual avionics debugging lessons.
+      </p>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// blog content</div>
+
+        <div style="
+          max-height:420px;
+          overflow-y:auto;
+          font-size:.85rem;
+          line-height:1.8;
+          color:#cbd5e1;
+          padding-right:6px;
+        ">
+
+          <p><b>ARINC 429</b> is a unidirectional avionics data bus used across aircraft systems.</p>
+
+          <p>Every transmission is a <b>32-bit word</b> containing:</p>
+          <ul style="padding-left:18px;">
+            <li>Label (8 bits — bit reversed)</li>
+            <li>SDI (2 bits)</li>
+            <li>Data (19 bits)</li>
+            <li>SSM (status/sign)</li>
+            <li>Parity</li>
+          </ul>
+
+          <p>The first major mistake engineers make is <b>label decoding</b>.</p>
+          <p>Labels are transmitted LSB-first, meaning they must be <b>bit-reversed</b> before comparison.</p>
+
+          <p>Second major trap: <b>BNR vs BCD</b>.</p>
+
+          <ul style="padding-left:18px;">
+            <li><b>BNR</b> → binary fixed-point (scaled)</li>
+            <li><b>BCD</b> → decimal digits packed in 4-bit groups</li>
+          </ul>
+
+          <p>If you decode BCD as BNR, you’ll get values that look correct — but are wrong.</p>
+
+          <p><b>SSM (Sign/Status Matrix)</b> is critical:</p>
+          <ul style="padding-left:18px;">
+            <li>Normal Operation</li>
+            <li>Failure Warning</li>
+            <li>No Computed Data</li>
+          </ul>
+
+          <p>If SSM ≠ valid → <b>ignore the data</b>.</p>
+
+          <p>In real avionics systems, ignoring SSM leads to dangerous UI bugs where stale or invalid values are shown.</p>
+
+          <p><b>Production Lessons:</b></p>
+          <ul style="padding-left:18px;">
+            <li>Always reverse label bits</li>
+            <li>Always validate parity</li>
+            <li>Always check SSM before using data</li>
+            <li>Always apply correct resolution (LSB weight)</li>
+          </ul>
+
+          <p>ARINC 429 is old, but once understood — it's extremely deterministic and reliable.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: MCDU -->
+<div class="modal-overlay" id="modal-mcdu">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mcdu-title">
+    <button class="modal-close" onclick="closeModal('mcdu')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8M12 17v4"/>
+          <rect x="5" y="6" width="3" height="2" rx="0.5"/>
+          <rect x="10" y="6" width="3" height="2" rx="0.5"/>
+          <rect x="15" y="6" width="3" height="2" rx="0.5"/>
+          <rect x="5" y="10" width="3" height="2" rx="0.5"/>
+          <rect x="10" y="10" width="3" height="2" rx="0.5"/>
+          <rect x="15" y="10" width="3" height="2" rx="0.5"/>
+        </svg>
+      </div>
+      <div class="modal-title-group">
+        <div class="modal-title" id="mcdu-title">Multi-Control Display Unit</div>
+        <div class="modal-subtitle">Avionics · ARINC-429 · Real-Time Systems</div>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>DEPLOYED
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <p class="overview-text">
+        A embedded cockpit avionics interface built for real-time command and control. The MCDU integrates <b>ARINC API</b> to exchange flight management data between avionics subsystems, providing pilots with a low latency, deterministic interface for communication, and system configuration.
+      </p>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-val">ARINC Astronics</div>
+          <div class="metric-lbl">Ballard API</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">ARINC 739</div>
+          <div class="metric-lbl">Protocol</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">Windows</div>
+          <div class="metric-lbl">RUNTIME</div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// tech stack</div>
+        <div class="tech-grid">
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#5b8dee;"></div><div class="tech-chip-name">C / C++ / Python</div></div>
+            <div class="tech-chip-desc">Core firmware &amp; driver logic</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#f97316;"></div><div class="tech-chip-name">ARINC-429 / 739</div></div>
+            <div class="tech-chip-desc">Avionics data bus protocol</div>
+          </div>
+          <!-- <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#a78bfa;"></div><div class="tech-chip-name">RTOS</div></div>
+            <div class="tech-chip-desc">Real-time task scheduling</div>
+          </div> -->
+          <!-- <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#34d399;"></div><div class="tech-chip-name">Embedded Linux</div></div>
+            <div class="tech-chip-desc">Platform &amp; BSP integration</div>
+          </div> -->
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#fbbf24;"></div><div class="tech-chip-name">LDRA</div></div>
+            <div class="tech-chip-desc">DO-178C static analysis</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#e879f9;"></div><div class="tech-chip-name">SVN / Git</div></div>
+            <div class="tech-chip-desc">Version control &amp; baselining</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// key features</div>
+        <div class="features-list">
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>ARINC-429 Tx/Rx</b> — full duplex avionics bus driver handling label encoding, word framing, and SDI/SSM field parsing at hardware level</span></div>
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Deterministic command dispatch</b> — interrupt-driven input handling routed through priority queues for zero-jitter response under worst-case load</span></div>
+          <!-- <div class="feature-row"><div class="feature-arrow">›</div><span><b>Display rendering engine</b> — character-mapped LCD controller driving the pilot scratchpad, line select keys, and mode annunciators in real time</span></div> -->
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>DO-178C compliance</b> — structural coverage verified with LDRA static analysis toolset; traceability matrix maintained from requirements to test cases</span></div>
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Fault isolation &amp; BIT</b> — built-in self-test routines detect bus failures and display faults; errors propagated to maintenance data log</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: Navigation System -->
+<div class="modal-overlay" id="modal-navic">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="navic-title">
+    <button class="modal-close" onclick="closeModal('navic')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="modal-title-group">
+        <div class="modal-title" id="navic-title">Real-Time Navigation System</div>
+        <div class="modal-subtitle">Embedded Display · OpenGL · Flight Systems</div>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>DEPLOYED
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <p class="overview-text">
+        An embedded real-time flight navigation display system rendering live aircraft positioning data using <b>OpenGL</b> on a dedicated avionics display unit. Processes incoming sensor and navigation bus data to produce a deterministic moving-map display with sub-frame update rates, enabling accurate situational awareness for flight crews.
+      </p>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-val">60Hz</div>
+          <div class="metric-lbl">REFRESH</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">GPS</div>
+          <div class="metric-lbl">DATA SRC</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">OpenGL</div>
+          <div class="metric-lbl">RENDERER</div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// tech stack</div>
+        <div class="tech-grid">
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#5b8dee;"></div><div class="tech-chip-name">C / C++</div></div>
+            <div class="tech-chip-desc">Display logic &amp; data pipeline</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#34d399;"></div><div class="tech-chip-name">OpenGL</div></div>
+            <div class="tech-chip-desc">Real-time 2D/3D rendering</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#f97316;"></div><div class="tech-chip-name">ARINC-429</div></div>
+            <div class="tech-chip-desc">Nav data ingestion bus</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#a78bfa;"></div><div class="tech-chip-name">Embedded Linux</div></div>
+            <div class="tech-chip-desc">Real-time Linux platform</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#fbbf24;"></div><div class="tech-chip-name">LDRA</div></div>
+            <div class="tech-chip-desc">Coverage &amp; compliance testing</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#e879f9;"></div><div class="tech-chip-name">Git / SVN</div></div>
+            <div class="tech-chip-desc">Source control</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// key features</div>
+        <div class="features-list">
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Moving-map display</b> — real-time rendering of aircraft position, heading, and flight path overlaid on georeferenced map tiles at 60 Hz</span></div>
+          <!-- <div class="feature-row"><div class="feature-arrow">›</div><span><b>ARINC-429 nav data feed</b> — live ingest of GPS, IRS, and VOR/DME data labels parsed from the avionics bus with timestamp validation</span></div> -->
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>OpenGL rendering pipeline</b> — custom shader programs for terrain shading, waypoint symbology, and weather overlay compositing</span></div>
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Deterministic frame timing</b> — display task pinned to dedicated CPU core with real-time priority to guarantee frame delivery under full avionics bus load</span></div>
+          <!-- <div class="feature-row"><div class="feature-arrow">›</div><span><b>Sensor fusion</b> — GPS/IRS blending algorithm maintains position accuracy during signal outages using dead-reckoning with IMU data</span></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: Flight Data Recorder -->
+<div class="modal-overlay" id="modal-fdr">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="fdr-title">
+    <button class="modal-close" onclick="closeModal('fdr')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="3"/>
+          <circle cx="8" cy="12" r="2"/>
+          <path d="M14 10h4M14 14h4"/>
+          <path d="M2 10h2M2 14h2"/>
+        </svg>
+      </div>
+      <div class="modal-title-group">
+        <div class="modal-title" id="fdr-title">Flight Data Recorder</div>
+        <div class="modal-subtitle">Black Box · Data Acquisition · Crash-Survivable</div>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>DEPLOYED
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <p class="overview-text">
+        A crash-survivable embedded data acquisition system that continuously captures and stores critical avionics parameters from multiple bus sources.The system records flight dynamics, crew audio triggers, and systems health data to non-volatile storage with guaranteed write integrity under abnormal power conditions.
+      </p>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-val">1000+</div>
+          <div class="metric-lbl">PARAMETERS</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">25h</div>
+          <div class="metric-lbl">DATA RETENTION</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">DO-178</div>
+          <div class="metric-lbl">STANDARD</div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// tech stack</div>
+        <div class="tech-grid">
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#5b8dee;"></div><div class="tech-chip-name">C / C++</div></div>
+            <div class="tech-chip-desc">Low-level firmware &amp; I/O drivers</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#f97316;"></div><div class="tech-chip-name">ARINC-429</div></div>
+            <div class="tech-chip-desc">Primary avionics data bus</div>
+          </div>
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#fb7185;"></div><div class="tech-chip-name">ARINC-717</div></div>
+            <div class="tech-chip-desc">FDR serial bus interface</div>
+          </div>
+          <!-- <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#a78bfa;"></div><div class="tech-chip-name">RTOS</div></div>
+            <div class="tech-chip-desc">Hard real-time scheduling</div>
+          </div> -->
+          <!-- <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#34d399;"></div><div class="tech-chip-name">SQLite</div></div>
+            <div class="tech-chip-desc">Structured parameter logging</div>
+          </div> -->
+          <div class="tech-chip">
+            <div class="tech-chip-top"><div class="tech-chip-dot" style="background:#fbbf24;"></div><div class="tech-chip-name">LDRA</div></div>
+            <div class="tech-chip-desc">DO-178C verification</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div>
+        <div class="section-label">// key features</div>
+        <div class="features-list">
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Multi-bus acquisition</b> — simultaneous sampling of ARINC-429 and ARINC-717 buses with hardware timestamping for post-incident correlation</span></div>
+          <!-- <div class="feature-row"><div class="feature-arrow">›</div><span><b>Power-loss safe writes</b> — atomic write transactions with journaling ensure no data corruption under sudden power interruption or brown-out conditions</span></div> -->
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>1000+ parameter capture</b> — configurable parameter frame maps conforming to ED-112A data specification including flight dynamics, engine, and systems data</span></div>
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>25-hour rolling buffer</b> — circular NVM storage with wear-levelling algorithm extending flash endurance to meet mandatory retention requirements</span></div>
+          <div class="feature-row"><div class="feature-arrow">›</div><span><b>Health monitoring</b> — built-in self-test on startup validates storage integrity, bus connectivity, and sensor ranges; faults reported to central maintenance system</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+/* ── Stars ── */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [], mouseX = 0, mouseY = 0;
+
+function init(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  stars = [];
+  for(let i = 0; i < 200; i++){
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 1.4,
+      speed: Math.random() * 0.5 + 0.15
+    });
+  }
+}
+
+window.addEventListener("mousemove", e => {
+  mouseX = (e.clientX - window.innerWidth / 2) * 0.02;
+  mouseY = (e.clientY - window.innerHeight / 2) * 0.02;
+});
+
+function animate(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x + mouseX * s.speed, s.y + mouseY * s.speed, s.size, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(255,255,255,.8)";
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener("resize", init);
+init();
+animate();
+
+/* ── 3D card tilt — desktop only ── */
+if(window.innerWidth > 768){
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const rotX = (e.clientY - r.top - r.height/2) / 12;
+      const rotY = (r.width/2 - (e.clientX - r.left)) / 12;
+      card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateX(0) rotateY(0)";
+    });
+  });
+}
+
+/* ── Modal logic ── */
+function openModal(id) {
+  const overlay = document.getElementById('modal-' + id);
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+  requestAnimationFrame(() => overlay.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  const overlay = document.getElementById('modal-' + id);
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  setTimeout(() => { overlay.style.display = 'none'; }, 300);
+  document.body.style.overflow = '';
+}
+
+/* Close on overlay click */
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      const id = overlay.id.replace('modal-', '');
+      closeModal(id);
+    }
+  });
+});
+
+/* Close on Escape */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(overlay => {
+      const id = overlay.id.replace('modal-', '');
+      closeModal(id);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
